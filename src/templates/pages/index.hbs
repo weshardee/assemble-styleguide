@@ -1,0 +1,44 @@
+---
+title: Styleguide Home
+---
+
+<style>
+div {
+    padding: 20px;
+    border: 1px solid #eee;
+}
+</style>
+
+{{! grab the readme, turn it into HTML }}
+{{{md 'README.md'}}}
+
+{{#categories}}
+
+<h2>{{category}}</h2>
+
+{{#each pages}}
+
+<h3><a id="{{basename}}" />{{data.title}} ({{this.src}})</h3>
+<p>{{data.description}}</p>
+<div>{{page}}</div>
+<div>{{{page}}}</div>
+<div>{{#markdown}} {{{page}}} {{/markdown}}</div>
+
+{{/each}}
+
+{{/categories}}
+
+<!--
+<h2>All Tags</h2>
+{{#each  tags }}
+<h1>
+    <a  href ="#" > {{tag }} </a >
+</h1>
+{{#each pages}}
+<section>
+    <h2>{{data.title}}</h2>
+    <p>{{data.description}}</p>
+    <div>{{page}}</div>
+</section>
+{{/each}}
+{{/each  }} -->
